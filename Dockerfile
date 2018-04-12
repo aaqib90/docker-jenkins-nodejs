@@ -2,7 +2,7 @@ FROM jenkins/jenkins:lts-alpine
 
 MAINTAINER Acris Liu "acrisliu@gmail.com"
 
-ENV NODE_VERSION 8.10.0
+ENV NODE_VERSION 8.11.1
 
 # Switch to root user
 USER root
