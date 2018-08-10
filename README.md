@@ -3,8 +3,8 @@ This Dockerfile build an image for [Jenkins](https://jenkins.io/) with [Node.js]
 
 Current version:
 - Jenkins: 2.121.2
-- Node.js: 8.11.3
-- Yarn: 1.7.0
+- Node.js: 10.8.0
+- Yarn: 1.9.4
 
 ![Jenkins](http://jenkins-ci.org/sites/default/files/jenkins_logo.png "Jenkins")  
 
