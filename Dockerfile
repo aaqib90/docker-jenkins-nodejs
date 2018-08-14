@@ -11,8 +11,10 @@ RUN apk add --no-cache \
         libstdc++ \
     && apk add --no-cache --virtual .build-deps \
         binutils-gold \
+        curl \
         g++ \
         gcc \
+        gnupg \
         libgcc \
         linux-headers \
         make \
