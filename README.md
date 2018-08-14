@@ -1,17 +1,18 @@
 # Jenkins with Node.js Dockerfile
 This Dockerfile build an image for [Jenkins](https://jenkins.io/) with [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/), based on Alpine Linux.
 
-Current version:
-- Jenkins: 2.121.2
-- Node.js: 10.8.0
-- Yarn: 1.9.4
+Current version (LTS):
+- Jenkins: [Latest LTS](https://jenkins.io/changelog-stable/)
+- Node.js: [LTS 'Carbon'](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V8.md)
+
+For latest version, please go to [here](https://github.com/Acris/docker-jenkins-nodejs).
 
 ![Jenkins](http://jenkins-ci.org/sites/default/files/jenkins_logo.png "Jenkins")  
 
 ## Quick Start
 
 ```
-docker run -p 8080:8080 -p 50000:50000 acrisliu/jenkins-nodejs
+docker run -p 8080:8080 -p 50000:50000 acrisliu/jenkins-nodejs:lts
 ```
 
 NOTE: read below the _build executors_ part for the role of the `50000` port mapping.
@@ -20,7 +21,7 @@ This will store the workspace in /var/jenkins_home. All Jenkins data lives in th
 You will probably want to make that an explicit volume so you can manage it and attach to another container for upgrades :
 
 ```
-docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home acrisliu/jenkins-nodejs
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home acrisliu/jenkins-nodejs:lts
 ```
 
 this will automatically create a 'jenkins_home' volume on docker host, that will survive container stop/restart/deletion. 
@@ -29,4 +30,4 @@ Avoid using a bind mount from a folder on host into `/var/jenkins_home`, as this
 
 ---
 
-Read [Jenkins documentation](https://github.com/jenkinsci/docker/blob/alpine/README.md) for more usages, don't forget replace "jenkins" to "acrisliu/jenkins-nodejs".
+Read [Jenkins documentation](https://github.com/jenkinsci/docker/blob/alpine/README.md) for more usages, don't forget replace "jenkins:lts" to "acrisliu/jenkins-nodejs:lts".
