@@ -5,7 +5,7 @@ Current version (LTS):
 - Jenkins: [Latest LTS](https://jenkins.io/changelog-stable/)
 - Node.js: [LTS 'Carbon'](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V8.md)
 
-For latest version, please go to [here](https://github.com/Acris/docker-jenkins-nodejs).
+For latest version, please go [here](https://github.com/Acris/docker-jenkins-nodejs).
 
 ![Jenkins](http://jenkins-ci.org/sites/default/files/jenkins_logo.png "Jenkins")  
 
