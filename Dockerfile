@@ -7,8 +7,7 @@ LABEL maintainer="acrisliu@gmail.com"
 # Switch to root user
 USER root
 
-RUN --mount=src=/,dest=/,from=node \
-    apk add --no-cache libstdc++
+RUN apk add --no-cache libstdc++
 
 COPY /usr/local/bin/node /usr/local/bin/npm /usr/local/bin/npx \
      /usr/local/bin/yarn /usr/local/bin/yarnpkg \
