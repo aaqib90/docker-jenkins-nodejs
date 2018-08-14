@@ -1,40 +1,20 @@
+FROM node:carbon-alpine AS node
+
 FROM jenkins/jenkins:lts-alpine
 
-MAINTAINER Acris Liu "acrisliu@gmail.com"
-
-ENV NODE_VERSION 10.8.0
+LABEL maintainer="acrisliu@gmail.com"
 
 # Switch to root user
 USER root
 
-RUN apk add --no-cache \
-        libstdc++ \
-    && apk add --no-cache --virtual .build-deps \
-        binutils-gold \
-        curl \
-        g++ \
-        gcc \
-        gnupg \
-        libgcc \
-        linux-headers \
-        make \
-        python \
-    && cd /tmp \
-    && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz" \
-    && tar -xf "node-v$NODE_VERSION.tar.xz" \
-    && cd "node-v$NODE_VERSION" \
-    && ./configure \
-    && make -j$(getconf _NPROCESSORS_ONLN) \
-    && make install \
-    && apk del .build-deps \
-    && cd .. \
-    && rm -Rf "node-v$NODE_VERSION" \
-    && rm "node-v$NODE_VERSION.tar.xz"
-
-ENV YARN_VERSION 1.9.4
-
-RUN curl -fSL -o /usr/local/bin/yarn "https://github.com/yarnpkg/yarn/releases/download/v$YARN_VERSION/yarn-$YARN_VERSION.js" \
-    && chmod +x /usr/local/bin/yarn
+RUN --mount=src=/,dest=/,from=node \
+    apk add --no-cache libstdc++ \
+    && mv /usr/local/bin/node cp /usr/local/bin/npm cp /usr/local/bin/npx \
+          /usr/local/bin/yarn /usr/local/bin/yarnpkg \
+          /usr/local/bin/ \
+    && mv /usr/local/include/node/ /usr/local/include/ \
+    && mv /usr/local/lib/node_modules/ /usr/local/lib/ \
+    && mv /usr/local/share/ /usr/local/
 
 # Switch to jenkins user
 USER jenkins
