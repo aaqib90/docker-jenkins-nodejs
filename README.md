@@ -3,7 +3,7 @@ This Dockerfile build an image for [Jenkins](https://jenkins.io/) with [Node.js]
 
 Current version:
 - Jenkins: [Latest](https://jenkins.io/changelog/)
-- Node.js: [Latest V10.x](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md)
+- Node.js: [Latest](https://nodejs.org)
 
 For LTS version, please go [here](https://github.com/Acris/docker-jenkins-nodejs/tree/lts).
 
