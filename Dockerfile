@@ -2,7 +2,7 @@ FROM node:alpine AS node
 
 FROM jenkins/jenkins:alpine
 
-LABEL maintainer="acrisliu@gmail.com"
+LABEL maintainer="Acris Liu <acrisliu@gmail.com>"
 
 # Switch to root user
 USER root
