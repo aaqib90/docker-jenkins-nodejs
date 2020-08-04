@@ -1,8 +1,8 @@
-FROM node:alpine AS node
+FROM node:12.18.3-alpine3.11 AS node
 
 FROM jenkins/jenkins:alpine
 
-LABEL maintainer="Acris Liu <acrisliu@gmail.com>"
+LABEL maintainer="Aaqib Jawed <mailmeaaqib@gmail.com>"
 
 # Switch to root user
 USER root
